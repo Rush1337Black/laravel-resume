@@ -50,7 +50,7 @@
                     </label>
                 </div>
                 <div class="col-12 mb-1">
-                    <a href="authorization.html">Есть учетная запись?</a>
+                    <a href="{{ route('main.authorization') }}">Есть учетная запись?</a>
                 </div>
                 <button class="w-100 btn btn-lg btn-primary" type="submit">Зарегистрироваться</button>
             </form>

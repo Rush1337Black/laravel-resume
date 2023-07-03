@@ -18,7 +18,7 @@
                 <span class="fs-4">ТЕСТ САЙТ</span>
             </h1>
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="{{ route('main') }}" class="nav-link link-dark px-2 active" aria-current="page">ГЛАВНАЯ</a></li>
+                <li class="nav-item"><a href="{{ route('main') }}" class="nav-link link-dark px-2" aria-current="page">ГЛАВНАЯ</a></li>
                 <li class="nav-item"><a href="#" class="nav-link link-dark px-2">ПРОДАТЬ</a></li>
                 <li class="nav-item"><a href="#" class="nav-link link-dark px-2">ИСТОРИЯ</a></li>
                 <li class="nav-item"><a href="#" class="nav-link link-dark px-2">СООБЩЕНИЯ</a></li>

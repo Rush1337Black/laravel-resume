@@ -4,10 +4,10 @@ namespace app\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
 
-class SettingsController extends Controller
+class ChangeMailController extends Controller
 {
     public function __invoke()
     {
-        return view('layouts.settings');
+        return view('main.settings.changeMail');
     }
 }

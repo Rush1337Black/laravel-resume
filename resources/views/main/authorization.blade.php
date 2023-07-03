@@ -30,10 +30,10 @@
                     </label>
                 </div>
                 <div class="col-12 mb-1">
-                    <a href="forgotPassword.html">Забыли пароль</a>
+                    <a href="{{ route('main.forgot.password') }}">Забыли пароль</a>
                 </div>
                 <div class="col-12 mb-1">
-                    <a href="authorization.html">Нету учетной записи?</a>
+                    <a href="{{ route('main.registration') }}">Нету учетной записи?</a>
                 </div>
                 <button class="w-100 btn btn-lg btn-primary" type="submit">Авторизоваться</button>
             </form>
