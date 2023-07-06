@@ -16,8 +16,19 @@ return new class extends Migration
             $table->string('login')->unique();
             $table->string('email');
             $table->boolean('email_confirmed')->default(0);
-
             $table->string('password');
+
+            $table->string('name')->default('HELLO NEW USER =)');
+            $table->integer('messages')->default(0);
+            $table->integer('balance')->default(0);
+            $table->integer('rating')->default(0);
+            $table->integer('sales')->default(0);
+            $table->integer('purchases')->default(0);
+            $table->string('path_image_avatar')->nullable();
+            $table->string('path_image_background')->nullable();
+
+            $table->boolean('isFrozen')->default(0);
+            $table->boolean('isBan')->default(0);
 
             $table->timestamps();
             $table->softDeletes();

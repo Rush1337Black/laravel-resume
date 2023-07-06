@@ -23,7 +23,9 @@
                 <li class="nav-item"><a href="#" class="nav-link link-dark px-2">ИСТОРИЯ</a></li>
                 <li class="nav-item"><a href="#" class="nav-link link-dark px-2">СООБЩЕНИЯ</a></li>
                 <li class="nav-item"><a href="#" class="nav-link link-dark px-2">ПОМОЩЬ</a></li>
-                <li class="nav-item"><a href="{{ route('user.profile') }}" class="nav-link link-dark px-2">ПРОФИЛЬ</a></li>
+                @if(Auth::check())
+                    <li class="nav-item"><a href="{{ route('user.profile') }}" class="nav-link link-dark px-2">ПРОФИЛЬ</a></li>
+                @endif
             </ul>
         </div>
     </nav>

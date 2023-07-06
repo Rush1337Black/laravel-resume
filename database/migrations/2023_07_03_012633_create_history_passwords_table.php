@@ -18,8 +18,6 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->date('created_at');
 
-
-
             $table->index('user_id','history_password_user_idx');
             $table->foreign('user_id','history_password_user_fk')->
             on('users')->references('id');
