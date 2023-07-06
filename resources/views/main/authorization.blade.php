@@ -2,26 +2,31 @@
 @section('content')
     <div class="text-center">
         <div class="form-signin mt-1 text-start">
-            <form>
+            <form action="{{ route('user.authorization') }}" method="POST">
+                @csrf
                 <h1 class="h3 mb-3 mt-3 fw-normal">Авторизация</h1>
                 <div class="col-12">
                     <label class="text-small">Логин</label>
                     <div class="form-floating">
-                        <input type="text" class="form-control" name="login" id="floatingLogin" placeholder="login">
+                        <input type="text" class="form-control" name="login" id="floatingLogin" placeholder="login" value="{{ old('login')}}">
                         <label for="floatingLogin">login</label>
-                        <div class="invalid-feedback">
-                            Your login is required.
+                        @error('login')
+                        <div class="text-danger">
+                            {{ $message }}
                         </div>
+                        @enderror
                     </div>
                 </div>
                 <div class="col-12">
                     <label class="text-small">Пароль</label>
                     <div class="form-floating">
-                        <input type="password" class="form-control" name="Password" id="floatingPassword" placeholder="Password">
+                        <input type="text" class="form-control" name="password" id="floatingPassword" placeholder="Password" value="{{ old('password')}}">
                         <label for="floatingPassword">password</label>
-                        <div class="invalid-feedback">
-                            Your login is required.
+                        @error('password')
+                        <div class="text-danger">
+                            {{ $message }}
                         </div>
+                        @enderror
                     </div>
                 </div>
                 <div class="checkbox mb-3">

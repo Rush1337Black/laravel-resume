@@ -13,21 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::group(['namespace' => '' ], function () {
-
     Route::group(['namespace' => 'Main' ], function () {
         Route::get('/' ,'IndexController')->name('main');
         Route::get('/registration' ,'RegistrationController')->name('main.registration');
         Route::get('/authorization' ,'AuthorizationController')->name('main.authorization');
         Route::get('/forgot.password' ,'ForgotPasswordController')->name('main.forgot.password');
 
-        Route::get('/profile' ,'ProfileController')->name('user.profile');
-        Route::get('/settings' ,'SettingsController')->name('user.settings');
-        Route::get('/change.mail' ,'ChangeMailController')->name('user.change.mail');
-        Route::get('/change.password' ,'ChangePasswordController')->name('user.change.password');
+        Route::group(['namespace' => 'User' ], function () {
+            Route::post('/logout' ,'LogoutController')->name('user.logout');
+            Route::post('/registration' ,'RegistrationController')->name('user.registration');
+            Route::post('/authorization' ,'AuthorizationController')->name('user.authorization');
+            Route::get('/profile' ,'ProfileController')->name('user.profile');
+            Route::get('/settings' ,'SettingsController')->name('user.settings');
+            Route::get('/change.mail' ,'ChangeMailController')->name('user.change.mail');
+            Route::get('/change.password' ,'ChangePasswordController')->name('user.change.password');
+        });
     });
 });
+

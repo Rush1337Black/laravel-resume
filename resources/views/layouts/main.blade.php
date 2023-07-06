@@ -32,13 +32,24 @@
             <form  class="d-flex align-items-center mb-1 mb-lg-0 me-lg-auto text-dark text-decoration-none">
                 <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
             </form>
-            <ul class="nav">
-                <li class="nav-item"><a href="{{ route('main.authorization') }}" class="nav-link link-dark px-2">Авторизация</a></li>
-                <li class="nav-item"><a href="{{ route('main.registration') }}" class="nav-link link-dark px-2">Регистрация</a></li>
-            </ul>
+            @if(Auth::check())
             <a href="{{ route('user.profile') }}" class="d-block link-dark text-decoration-none" aria-expanded="false">
                 <img src="images/userNoImg.png" alt="mdo" width="44" height="44" class="rounded-circle">
             </a>
+            @endif
+            <ul class="nav">
+                @if(Auth::check())
+                    <form action="{{ route('user.logout') }}" method="POST">
+                       <p class="nav-link link-dark px-2"><input  type="submit" value="Выход"></p>
+                       @csrf
+                    </form>
+                @else
+                    <li class="nav-item"><a href="{{ route('main.authorization') }}" class="nav-link link-dark px-2">Авторизация</a></li>
+                    <li class="nav-item"><a href="{{ route('main.registration') }}" class="nav-link link-dark px-2">Регистрация</a></li>
+                @endif
+
+            </ul>
+
         </div>
     </header>
 
