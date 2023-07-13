@@ -19,11 +19,14 @@ class User extends Authenticatable
         'login',
         'email',
         'password',
+        'path_image_avatar',
+        'path_image_background'
     ];
 
     protected $hidden = [
         'password',
         'remember_token',
+
     ];
 
     protected $casts = [

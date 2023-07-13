@@ -3,7 +3,7 @@
 namespace app\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Main\User\AuthorizationRequest;
+use app\Http\Requests\User\AuthorizationRequest;
 use Illuminate\Support\Facades\Auth;
 
 class AuthorizationController extends Controller
@@ -12,10 +12,8 @@ class AuthorizationController extends Controller
     {
         $data = $request->only(['login','password']);
 
-        if (Auth::attempt($data)) {
-
+        if (Auth::attempt($data))
             return redirect()->route('user.profile');
-        }
 
         return back()->withErrors([
             'login' => 'неизвестная ошибка',

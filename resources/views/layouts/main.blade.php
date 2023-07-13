@@ -36,7 +36,7 @@
             </form>
             @if(Auth::check())
             <a href="{{ route('user.profile') }}"  class="m-1 d-block link-dark text-decoration-none" aria-expanded="false">
-                <img src="{{ asset('images/userNoImg.png') }}" alt="mdo" width="46" height="46" class="rounded-circle">
+                <img src="{{ Storage::url(auth()->user()->path_image_avatar) }} " alt="mdo" width="46" height="46" class="rounded-circle">
             </a>
             @endif
             <ul class="nav">

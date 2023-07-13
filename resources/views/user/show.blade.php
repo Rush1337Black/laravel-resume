@@ -2,10 +2,10 @@
 @section('content')
     <div class="container">
         <div class=" rounded text-body-emphasis bg-body-secondary">
-            <div class=".container-md background-image mt-2"  style="background-image:url(/images/userNoImg.png)">
+            <div class=".container-md background-image mt-2"  style="background-image:url({{ Storage::url(auth()->user()->path_image_background) }} )">
                 <div class=" p-3">
                     <h3 class="p-1">Профиль</h3>
-                    <img src="{{ asset('images/userNoImg.png') }}" alt="mdo" width="200" height="200" class="rounded-circle p-1">
+                    <img src="{{ Storage::url(auth()->user()->path_image_avatar) }} " alt="mdo" width="200" height="200" class="rounded-circle p-1">
                     <h4 class="p-1">{{ $user->name }}</h4>
                     <p class="lead p-1"><a href="{{ route('user.setting.index') }}" class="text-body-emphasis fw-bold">Настройки Профиля</a></p>
                 </div>

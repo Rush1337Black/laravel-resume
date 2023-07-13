@@ -5,21 +5,29 @@
             <div class="row g-5">
                 <div class="col-md-7 col-lg-8">
                     <h4 class="mb-3 mt-2">Аватар и Фон</h4>
-                    <form class="needs-validation" method="post" enctype="multipart/form-data">
+                    <form class="needs-validation" action="{{ route('user.setting.image.update')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PATCH')
                         <div class="p-1">
-                            <img src="{{ asset('images/userNoImg.png') }}" id="image" alt="mdo" width="200" height="200" class="p-1">
+                            <img src="{{ Storage::url(auth()->user()->path_image_avatar) }} " id="image" alt="mdo" width="200" height="200" class="p-1">
                         </div>
                         <div class="p-2">
-                            <input type="file" id="file"/>
+                            <input type="file" id="file" name="path_image_avatar"/>
                         </div>
+                        @error('path_image_avatar')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
+
 
                         <div class="p-1">
-                            <img class=".container-md background-image mt-2" src="{{ asset('images/userNoImg.png') }}"  width="700" height="300" id="image_background" alt="mdo" >
+                            <img class=".container-md background-image mt-2" src="{{ Storage::url(auth()->user()->path_image_background) }}" width="700" height="300" id="image_background" alt="mdo" >
                         </div>
-
                         <div class="p-2">
-                            <input type="file" id="file_background"/>
+                            <input type="file" id="file_background" name="path_image_background"/>
                         </div>
+                        @error('path_image_background')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
 
                         <div class="p-2">
                             <button class=" btn btn-primary mt-4 " type="submit">Обновить</button>

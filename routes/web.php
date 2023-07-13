@@ -44,7 +44,8 @@ Route::group(['namespace' => 'User'], function () {
             });
 
             Route::group(['namespace' => 'Image' ], function () {
-                Route::get('/setting/changeImage' ,'IndexController')->name('user.setting.changeImage');
+                Route::get('/setting/changeImage' ,'IndexController')->name('user.setting.image.index');
+                Route::patch('/setting/changeImage/update' ,'UpdateController')->name('user.setting.image.update');
             });
         });
     });
