@@ -13,19 +13,25 @@
                     <div class="row">
                         <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white" style="width: 380px;">
                             <div class="list-group list-group-flush border-bottom scrollarea">
-                                <a href="{{ route('user.settings') }}" class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
+                                <a href="{{ route('user.setting.index') }}" class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
                                     <div class="d-flex w-100 align-items-center justify-content-between">
                                         <strong class="mb-1">Основное</strong>
                                     </div>
                                 </a>
-                                <a href="{{ route('user.change.mail') }}" class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
+                                <a href="{{ route('user.setting.changeMail') }}" class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
                                     <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <strong class="mb-1">@Email</strong>
+                                        <strong class="mb-1">Email</strong>
                                     </div>
                                 </a>
-                                <a href="{{ route('user.change.password') }}" class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
+                                <a href="{{ route('user.setting.changePassword') }}" class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
                                     <div class="d-flex w-100 align-items-center justify-content-between">
                                         <strong class="mb-1">Пароль</strong>
+                                    </div>
+                                </a>
+
+                                <a href="{{ route('user.setting.changeImage') }}" class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
+                                    <div class="d-flex w-100 align-items-center justify-content-between">
+                                        <strong class="mb-1">Аватар и Фон</strong>
                                     </div>
                                 </a>
                             </div>
@@ -33,7 +39,7 @@
                     </div>
                 </div>
                 <div class="col-md-10 themed-grid-col">
-                    @yield('settings')
+                    @yield('setting')
                 </div>
             </div>
         </div>

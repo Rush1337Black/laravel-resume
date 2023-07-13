@@ -1,5 +1,5 @@
 @extends('layouts.settings')
-@section('settings')
+@section('setting')
     <div class="row g-5">
         <div class="col-md-7 col-lg-8">
             <h4 class="mb-3">Семенить Пароль</h4>

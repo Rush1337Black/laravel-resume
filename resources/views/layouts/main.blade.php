@@ -7,8 +7,8 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
     <title>Headers · Bootstrap v5.0</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="style/headers.css" rel="stylesheet">
+    <link href="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css') }}" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="{{ asset('style/headers.css') }}" rel="stylesheet">
 </head>
 <body>
 <main>
@@ -35,14 +35,14 @@
                 <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
             </form>
             @if(Auth::check())
-            <a href="{{ route('user.profile') }}" class="d-block link-dark text-decoration-none" aria-expanded="false">
-                <img src="images/userNoImg.png" alt="mdo" width="44" height="44" class="rounded-circle">
+            <a href="{{ route('user.profile') }}"  class="m-1 d-block link-dark text-decoration-none" aria-expanded="false">
+                <img src="{{ asset('images/userNoImg.png') }}" alt="mdo" width="46" height="46" class="rounded-circle">
             </a>
             @endif
             <ul class="nav">
                 @if(Auth::check())
                     <form action="{{ route('user.logout') }}" method="POST">
-                       <p class="nav-link link-dark px-2"><input  type="submit" value="Выход"></p>
+                        <li class="nav-item m-1"><input type="submit" class="nav-link link-dark align-items-center" value="Выход"></li>
                        @csrf
                     </form>
                 @else
@@ -55,12 +55,11 @@
         </div>
     </header>
 
-    <div class="b-example-divider"></div>
-
     @yield('content')
 
 </main>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<script src="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js') }}" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>
 </html>

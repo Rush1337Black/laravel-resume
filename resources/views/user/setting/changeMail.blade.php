@@ -1,5 +1,5 @@
 @extends('layouts.settings')
-@section('settings')
+@section('setting')
         <div class="row g-5">
             <div class="col-md-7 col-lg-8">
                 <form class="needs-validation" novalidate="">
@@ -7,6 +7,7 @@
 
                         <div class="form-floating">
                             <h4 class="mb-3">Потвердите Email</h4>
+                            <h5 class="mb-3 text-danger">{{ auth()->user()->email }}</h5>
                         </div>
                     </div>
                     <button class=" btn btn-primary col-7" type="submit">Отправить сообщение для подтверждения</button>
@@ -15,17 +16,6 @@
                 <h4 class="mb-3 mt-2">Семенить Email</h4>
                 <form class="needs-validation" novalidate="">
                     <div class="row g-3">
-
-                        <div class="col-12">
-                            <label class="text-small">Укажите нынешний Email</label>
-                            <div class="form-floating">
-                                <input type="text" class="form-control" name="password" id="floatingEmail" placeholder="Email">
-                                <label for="floatingEmail">Email</label>
-                                <div class="invalid-feedback">
-                                    Your login is required.
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="col-sm-6">
                             <label class="text-small">Укажите нынешний новый Email</label>
@@ -51,7 +41,7 @@
 
                     </div>
 
-                    <button class=" btn btn-primary mt-4 " type="submit">Сменить пароль</button>
+                    <button class=" btn btn-primary mt-4 " type="submit">Сменить Email</button>
                 </form>
             </div>
         </div>

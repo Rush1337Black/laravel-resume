@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('login')->unique();
             $table->string('email');
-            $table->boolean('email_confirmed')->default(0);
+            $table->string('role')->default('user');
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->rememberToken();
 
-            $table->string('name')->default('HELLO NEW USER =)');
+            $table->string('name')->default('New User');
             $table->integer('messages')->default(0);
             $table->integer('balance')->default(0);
             $table->integer('rating')->default(0);

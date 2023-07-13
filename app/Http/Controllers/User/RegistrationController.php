@@ -1,11 +1,12 @@
 <?php
 
-namespace app\Http\Controllers\Main\User;
+namespace app\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Main\User\RegistrationRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 
 class RegistrationController extends Controller
@@ -21,6 +22,13 @@ class RegistrationController extends Controller
             'password' => $data['password_main'],
         ]);
 
+        $lastUser = User::orderby('id', 'desc')->first();
+
+        $userName = 'User'.$lastUser['id'];
+
+        DB::table('users')
+            ->where('id', '=', $lastUser['id'])
+            ->update(['name' => $userName]);
 
         if ($user) {
             Auth::login($user);
@@ -28,7 +36,7 @@ class RegistrationController extends Controller
         }
 
         return redirect()->route('main.registration')->withErrors([
-            'formError' => 'x'
+            'formError' => 'неизвестная ошибка'
         ]);
     }
 }

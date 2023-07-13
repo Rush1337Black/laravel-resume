@@ -5,9 +5,9 @@
             <div class=".container-md background-image mt-2"  style="background-image:url(/images/userNoImg.png)">
                 <div class=" p-3">
                     <h3 class="p-1">Профиль</h3>
-                    <img src="images/userNoImg.png" alt="mdo" width="200" height="200" class="rounded-circle p-1">
-                    <h4 class="p-1">{{ auth()->user()->login }}</h4>
-                    <p class="lead p-1"><a href="{{ route('user.settings') }}" class="text-body-emphasis fw-bold">Настройки Профиля</a></p>
+                    <img src="{{ asset('images/userNoImg.png') }}" alt="mdo" width="200" height="200" class="rounded-circle p-1">
+                    <h4 class="p-1">{{ $user->name }}</h4>
+                    <p class="lead p-1"><a href="{{ route('user.setting.index') }}" class="text-body-emphasis fw-bold">Настройки Профиля</a></p>
                 </div>
             </div>
             <div class="row mb-0">

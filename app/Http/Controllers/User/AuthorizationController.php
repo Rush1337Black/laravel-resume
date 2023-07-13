@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers\Main\User;
+namespace app\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Main\User\AuthorizationRequest;
@@ -18,7 +18,7 @@ class AuthorizationController extends Controller
         }
 
         return back()->withErrors([
-            'login' => 'x',
+            'login' => 'неизвестная ошибка',
         ]);
     }
 }

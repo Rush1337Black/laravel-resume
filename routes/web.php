@@ -18,17 +18,34 @@ Route::group(['namespace' => '' ], function () {
         Route::get('/' ,'IndexController')->name('main');
         Route::get('/registration' ,'RegistrationController')->name('main.registration');
         Route::get('/authorization' ,'AuthorizationController')->name('main.authorization');
-        Route::get('/forgot.password' ,'ForgotPasswordController')->name('main.forgot.password');
-
-        Route::group(['namespace' => 'User' ], function () {
-            Route::post('/logout' ,'LogoutController')->name('user.logout');
-            Route::post('/registration' ,'RegistrationController')->name('user.registration');
-            Route::post('/authorization' ,'AuthorizationController')->name('user.authorization');
-            Route::get('/profile' ,'ProfileController')->name('user.profile');
-            Route::get('/settings' ,'SettingsController')->name('user.settings');
-            Route::get('/change.mail' ,'ChangeMailController')->name('user.change.mail');
-            Route::get('/change.password' ,'ChangePasswordController')->name('user.change.password');
-        });
+        Route::get('/forgot/password' ,'ForgotPasswordController')->name('main.forgotPassword');
     });
 });
 
+Route::group(['namespace' => 'User'], function () {
+    Route::get('/user/{user}' ,'ShowController')->name('user.show');
+
+    Route::post('/registration' ,'RegistrationController')->name('user.registration');
+    Route::post('/authorization' ,'AuthorizationController')->name('user.authorization');
+
+    Route::group(['middleware' => 'auth'], function () {
+        Route::post('/logout' ,'LogoutController')->name('user.logout');
+        Route::get('/profile' ,'IndexController')->name('user.profile');
+
+        Route::group(['namespace' => 'Setting' , 'prefix' => 'profile'], function () {
+            Route::get('/setting' ,'IndexController')->name('user.setting.index');
+
+            Route::group(['namespace' => 'Email' ], function () {
+                Route::get('/setting/changeMail' ,'IndexController')->name('user.setting.changeMail');
+            });
+
+            Route::group(['namespace' => 'Password' ], function () {
+                Route::get('/setting/changePassword' ,'IndexController')->name('user.setting.changePassword');
+            });
+
+            Route::group(['namespace' => 'Image' ], function () {
+                Route::get('/setting/changeImage' ,'IndexController')->name('user.setting.changeImage');
+            });
+        });
+    });
+});
