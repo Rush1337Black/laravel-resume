@@ -35,7 +35,7 @@
                     </label>
                 </div>
                 <div class="col-12 mb-1">
-                    <a href="{{ route('main.forgot.password') }}">Забыли пароль</a>
+                    <a href="{{ route('main.forgotPassword') }}">Забыли пароль</a>
                 </div>
                 <div class="col-12 mb-1">
                     <a href="{{ route('main.registration') }}">Нету учетной записи?</a>
