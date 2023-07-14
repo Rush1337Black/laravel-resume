@@ -35,9 +35,15 @@
                 <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
             </form>
             @if(Auth::check())
-            <a href="{{ route('user.profile') }}"  class="m-1 d-block link-dark text-decoration-none" aria-expanded="false">
-                <img src="{{ Storage::url(auth()->user()->path_image_avatar) }} " alt="mdo" width="46" height="46" class="rounded-circle">
-            </a>
+                @if( auth()->user()->path_image_avatar !== null)
+                    <a href="{{ route('user.profile') }}"  class="m-1 d-block link-dark text-decoration-none" aria-expanded="false">
+                        <img src="{{ Storage::url(auth()->user()->path_image_avatar) }} " alt="mdo" width="46" height="46" class="rounded-circle">
+                    </a>
+                @else
+                    <a href="{{ route('user.profile') }}"  class="m-1 d-block link-dark text-decoration-none" aria-expanded="false">
+                        <img src="{{ asset('images/userNoImg.png') }}" alt="mdo" width="46" height="46" class="rounded-circle">
+                    </a>
+                @endif
             @endif
             <ul class="nav">
                 @if(Auth::check())

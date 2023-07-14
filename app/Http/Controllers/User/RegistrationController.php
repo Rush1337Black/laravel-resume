@@ -3,11 +3,11 @@
 namespace app\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use app\Http\Requests\User\RegistrationRequest;
+use App\Http\Requests\User\RegistrationRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Http\Request;
 
 class RegistrationController extends Controller
 {

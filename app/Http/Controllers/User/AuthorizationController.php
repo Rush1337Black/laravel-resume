@@ -3,8 +3,9 @@
 namespace app\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use app\Http\Requests\User\AuthorizationRequest;
+use App\Http\Requests\User\AuthorizationRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class AuthorizationController extends Controller
 {
