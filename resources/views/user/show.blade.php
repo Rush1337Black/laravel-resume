@@ -8,15 +8,15 @@
                 <div class=".container-md background-image mt-2"  style="background-color:#5280ea">
             @endif
                 <div class=" p-3">
-                    <h3 class="p-1">Профиль</h3>
                     @if( $user->path_image_avatar !== null)
                         <img src="{{ Storage::url($user->path_image_avatar) }}" alt="mdo" width="200" height="200" class="rounded-circle p-1">
                     @else
                         <img src="{{ asset('images/userNoImg.png') }}" alt="mdo" width="200" height="200" class="rounded-circle p-1">
                     @endif
-                    <h4 class="p-1">{{ $user->name }}</h4>
-                    <p class="lead p-1"><a href="{{ route('user.setting.index') }}" class="text-body-emphasis fw-bold">Настройки Профиля</a></p>
                 </div>
+            </div>
+            <div class=" p-3">
+                <h4 class="p-1">{{ $user->name }}</h4>
             </div>
             <div class="row mb-0">
                 <div class="col-md-12">
