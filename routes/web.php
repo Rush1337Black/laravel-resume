@@ -35,6 +35,10 @@ Route::group(['namespace' => 'User'], function () {
         Route::group(['namespace' => 'Setting' , 'prefix' => 'profile'], function () {
             Route::get('/setting' ,'IndexController')->name('user.setting.index');
 
+            Route::group(['namespace' => 'Name' ], function () {
+                Route::patch('/setting/name/update' ,'UpdateController')->name('user.setting.name.update');
+            });
+
             Route::group(['namespace' => 'Email' ], function () {
                 Route::get('/setting/changeMail' ,'IndexController')->name('user.setting.changeMail');
             });

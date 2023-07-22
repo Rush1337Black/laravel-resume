@@ -8,6 +8,6 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        return view('user.setting.main');
+        return view('user.setting.name');
     }
 }
