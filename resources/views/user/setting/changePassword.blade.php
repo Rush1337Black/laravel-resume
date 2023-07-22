@@ -3,9 +3,10 @@
     <div class="row g-5">
         <div class="col-md-7 col-lg-8">
             <h4 class="mb-3">Семенить Пароль</h4>
-            <form class="needs-validation" novalidate="">
+            <form class="needs-validation" action="{{ route('user.setting.changePassword.update')}}" method="POST">
+                @csrf
+                @method('PATCH')
                 <div class="row g-3">
-
                     <div class="col-12">
                         <label class="text-small">Укажите нынешний пароль</label>
                         <div class="form-floating">

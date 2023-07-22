@@ -14,13 +14,15 @@
                 </form>
                 <hr class="my-4">
                 <h4 class="mb-3 mt-2">Семенить Email</h4>
-                <form class="needs-validation" novalidate="">
+                <form class="needs-validation" action="{{ route('user.setting.changeMail.update')}}" method="POST">
+                    @csrf
+                    @method('PATCH')
                     <div class="row g-3">
 
                         <div class="col-sm-6">
                             <label class="text-small">Укажите нынешний новый Email</label>
                             <div class="form-floating">
-                                <input type="text" class="form-control" name="password_new" id="floatingEmailNew" placeholder="Email new">
+                                <input type="text" class="form-control" name="email_new" id="floatingEmailNew" placeholder="Email new">
                                 <label for="floatingEmailNew">Email new</label>
                                 <div class="invalid-feedback">
                                     Your login is required.
@@ -31,7 +33,7 @@
                         <div class="col-sm-6">
                             <label class="text-small">Подтвердите новый Email</label>
                             <div class="form-floating">
-                                <input type="text" class="form-control" name="Email_confirm_new" id="floatingEmailConfirmNew" placeholder="Email confirm new">
+                                <input type="text" class="form-control" name="email_confirm_new" id="floatingEmailConfirmNew" placeholder="Email confirm new">
                                 <label for="floatingEmailConfirmNew">Email confirm new</label>
                                 <div class="invalid-feedback">
                                     Your login is required.

@@ -12,4 +12,5 @@ class HistoryPassword extends Model
     protected $table = 'history_passwords';
     protected $guarded = false;
 
+
 }

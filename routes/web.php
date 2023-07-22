@@ -41,10 +41,12 @@ Route::group(['namespace' => 'User'], function () {
 
             Route::group(['namespace' => 'Email' ], function () {
                 Route::get('/setting/changeMail' ,'IndexController')->name('user.setting.changeMail');
+                Route::patch('/setting/changeMail/update' ,'UpdateController')->name('user.setting.changeMail.update');
             });
 
             Route::group(['namespace' => 'Password' ], function () {
                 Route::get('/setting/changePassword' ,'IndexController')->name('user.setting.changePassword');
+                Route::patch('/setting/changePassword/update' ,'UpdateController')->name('user.setting.changePassword.update');
             });
 
             Route::group(['namespace' => 'Image' ], function () {
