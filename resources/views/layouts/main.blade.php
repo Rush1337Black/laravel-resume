@@ -55,17 +55,22 @@
                     <li class="nav-item"><a href="{{ route('main.authorization') }}" class="nav-link link-dark px-2">Авторизация</a></li>
                     <li class="nav-item"><a href="{{ route('main.registration') }}" class="nav-link link-dark px-2">Регистрация</a></li>
                 @endif
-
             </ul>
-
         </div>
     </header>
+    <nav class="py-1 bg-light border-bottom ">
+        <div class="container d-flex flex-wrap bg-danger bg-gradient rounded">
+            <h1 class="d-flex align-items-center me-md-auto text-dark text-decoration-none">
+                <span class="fs-4">ADMIN MENU</span>
+            </h1>
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="{{ route('admin.index') }}" class="nav-link link-dark px-1">ПЕРЕЙТИ</a></li>
+            </ul>
+        </div>
+    </nav>
 
     @yield('content')
-
 </main>
-
 <script src="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js') }}" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
 </body>
 </html>

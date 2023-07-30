@@ -54,5 +54,23 @@ Route::group(['namespace' => 'User'], function () {
                 Route::patch('/setting/changeImage/update' ,'UpdateController')->name('user.setting.image.update');
             });
         });
+
+        Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth'], function () {
+            Route::get('/' ,'IndexController')->name('admin.index');
+
+            Route::group(['namespace' => 'User', 'prefix' => 'user', 'middleware' => 'auth'], function () {
+                Route::get('/' ,'IndexController')->name('admin.user.index');
+                Route::get('/create' ,'CreateController')->name('admin.user.create');
+                Route::post('/' ,'StoreController')->name('admin.user.store');
+                Route::get('/{user}' ,'ShowController')->name('admin.user.show');
+                Route::get('/{user}/edit' ,'EditController')->name('admin.user.edit');
+                Route::patch('/{user}' ,'UpdateController')->name('admin.user.update');
+                Route::delete('/{user}' ,'DestroyController')->name('admin.user.destroy');
+            });
+
+
+        });
+
     });
+
 });

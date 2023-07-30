@@ -20,7 +20,7 @@ return new class extends Migration
 
             $table->index('user_id','history_email_user_idx');
             $table->foreign('user_id','history_email_user_fk')->
-            on('users')->references('id');
+            on('users')->references('id')->onDelete('cascade');
         });
     }
 
