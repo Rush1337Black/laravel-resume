@@ -15,11 +15,6 @@ class User extends Authenticatable
     protected $table = 'users';
     protected $guarded = false;
 
-    public function role()
-    {
-        return $this->hasOne(Role::class);
-    }
-
     protected $fillable = [
         'login',
         'email',

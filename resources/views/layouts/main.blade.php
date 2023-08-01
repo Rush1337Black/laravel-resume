@@ -58,16 +58,22 @@
             </ul>
         </div>
     </header>
-    <nav class="py-1 bg-light border-bottom ">
-        <div class="container d-flex flex-wrap bg-danger bg-gradient rounded">
-            <h1 class="d-flex align-items-center me-md-auto text-dark text-decoration-none">
-                <span class="fs-4">ADMIN MENU</span>
-            </h1>
-            <ul class="nav nav-pills">
-                <li class="nav-item"><a href="{{ route('admin.index') }}" class="nav-link link-dark px-1">ПЕРЕЙТИ</a></li>
-            </ul>
-        </div>
-    </nav>
+
+    @if(Auth::check())
+        @if(auth()->user()->role === 'admin')
+            <nav class="py-1 bg-light border-bottom ">
+                <div class="container d-flex flex-wrap bg-danger bg-gradient rounded">
+                    <h1 class="d-flex align-items-center me-md-auto text-dark text-decoration-none">
+                        <span class="fs-4">ADMIN MENU</span>
+                    </h1>
+                    <ul class="nav nav-pills">
+                        <li class="nav-item"><a href="{{ route('admin.index') }}" class="nav-link link-dark px-1">ПЕРЕЙТИ</a></li>
+                    </ul>
+                </div>
+            </nav>
+        @endif
+    @endif
+
 
     @yield('content')
 </main>
